@@ -1,0 +1,64 @@
+version: "3.7"
+
+services:
+  db:
+    container_name: ${POSTGRES_HOST}
+    image: postgres
+    env_file:
+      - ./.env
+    ports:
+      - ${POSTGRES_PORT}:5432
+    volumes:
+      - ./db/migration.sql:/docker-entrypoint-initdb.d/migration.sql
+    environment:
+      - POSTGRES_DB=${POSTGRES_DB}
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+    networks:
+      - node-red-net
+
+  db-client:
+    build:
+      context: "./db"
+      dockerfile: db-client.dockerfile
+      args:
+        - ADMINER_DESIGN=dracula
+    ports:
+      - "54321:8080"
+    networks:
+      - node-red-net
+    environment:
+      - ADMINER_DB=${POSTGRES_DB}
+      - ADMINER_DRIVER=pgsql
+      - ADMINER_PASSWORD=${POSTGRES_PASSWORD}
+      - ADMINER_SERVER=${POSTGRES_HOST}
+      - ADMINER_USERNAME=${POSTGRES_USER}
+      - ADMINER_AUTOLOGIN=1
+      - ADMINER_NAME=${POSTGRES_DB}
+    depends_on:
+      - db
+
+  node-red:
+    env_file:
+      - ./.env
+    build: .
+    user: root:root
+    environment:
+      - TZ=America/Sao_Paulo
+      - NR_POSTGRES_HOST=${POSTGRES_HOST}
+      - NR_POSTGRES_PORT=${POSTGRES_PORT}
+      - NR_POSTGRES_DB=${POSTGRES_DB}
+      - NR_POSTGRES_USER=${POSTGRES_USER}
+      - NR_POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+    ports:
+      - "1880:1880"
+    networks:
+      - node-red-net
+    volumes:
+      - ./node-red/data:/data
+    depends_on:
+      - db
+
+networks:
+  node-red-net:
+    driver: 'bridge'

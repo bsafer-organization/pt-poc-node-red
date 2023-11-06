@@ -1,0 +1,2544 @@
+[
+    {
+        "id": "6bef21922d7c8e5a",
+        "type": "tab",
+        "label": "PT_UI",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "4c1e8a1527ef26aa",
+        "type": "tab",
+        "label": "PT_API",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "16df7122180a067e",
+        "type": "subflow",
+        "name": "Check if user and company exists",
+        "info": "### Input\n```\nmsg.payload = {\n    userId: number,\n    companyId: number\n}\n```\n\n## Output\nmsg.payload",
+        "category": "",
+        "in": [
+            {
+                "x": 40,
+                "y": 180,
+                "wires": [
+                    {
+                        "id": "04e836950ea3726c"
+                    }
+                ]
+            }
+        ],
+        "out": [
+            {
+                "x": 920,
+                "y": 180,
+                "wires": [
+                    {
+                        "id": "c2a3b32dce42e92e",
+                        "port": 0
+                    }
+                ]
+            },
+            {
+                "x": 920,
+                "y": 380,
+                "wires": [
+                    {
+                        "id": "5b0ad01e490bce4d",
+                        "port": 0
+                    },
+                    {
+                        "id": "f7c0e19e957e300a",
+                        "port": 0
+                    }
+                ]
+            }
+        ],
+        "env": [],
+        "meta": {},
+        "color": "#3FADB5",
+        "icon": "node-red-contrib-postgresql/postgresql.png",
+        "status": {
+            "x": 920,
+            "y": 280,
+            "wires": [
+                {
+                    "id": "c2a3b32dce42e92e",
+                    "port": 0
+                },
+                {
+                    "id": "f7c0e19e957e300a",
+                    "port": 0
+                },
+                {
+                    "id": "5b0ad01e490bce4d",
+                    "port": 0
+                }
+            ]
+        }
+    },
+    {
+        "id": "180f3a6d5bebce5c",
+        "type": "subflow",
+        "name": "Check if pt name is duplicate",
+        "info": "### Input\n```\nmsg.payload = {\n    name: string\n}\n```\n\n## Output\nmsg.payload",
+        "category": "",
+        "in": [
+            {
+                "x": 160,
+                "y": 300,
+                "wires": [
+                    {
+                        "id": "f88b6e8986455b09"
+                    }
+                ]
+            }
+        ],
+        "out": [
+            {
+                "x": 1160,
+                "y": 300,
+                "wires": [
+                    {
+                        "id": "16e93c89d7a6acc5",
+                        "port": 0
+                    }
+                ]
+            },
+            {
+                "x": 1160,
+                "y": 520,
+                "wires": [
+                    {
+                        "id": "5fae6f574933697d",
+                        "port": 0
+                    },
+                    {
+                        "id": "a99d59ffe87af28e",
+                        "port": 0
+                    }
+                ]
+            }
+        ],
+        "env": [],
+        "meta": {},
+        "color": "#3FADB5",
+        "icon": "node-red-contrib-postgresql/postgresql.png",
+        "status": {
+            "x": 1160,
+            "y": 380,
+            "wires": [
+                {
+                    "id": "16e93c89d7a6acc5",
+                    "port": 0
+                },
+                {
+                    "id": "5fae6f574933697d",
+                    "port": 0
+                }
+            ]
+        }
+    },
+    {
+        "id": "3a0a1967c1239579",
+        "type": "subflow",
+        "name": "Insert a new pt",
+        "info": "",
+        "category": "",
+        "in": [
+            {
+                "x": 60,
+                "y": 260,
+                "wires": [
+                    {
+                        "id": "0c5ba2192142c750"
+                    },
+                    {
+                        "id": "55935bfbd8f53f65"
+                    }
+                ]
+            }
+        ],
+        "out": [
+            {
+                "x": 1340,
+                "y": 580,
+                "wires": [
+                    {
+                        "id": "d8e7340a1cbb24bd",
+                        "port": 0
+                    }
+                ]
+            },
+            {
+                "x": 1260,
+                "y": 100,
+                "wires": [
+                    {
+                        "id": "4d2c32172628bb0e",
+                        "port": 0
+                    },
+                    {
+                        "id": "ce1337e734ee9805",
+                        "port": 0
+                    }
+                ]
+            }
+        ],
+        "env": [],
+        "meta": {},
+        "color": "#3FADB5",
+        "icon": "node-red-contrib-postgresql/postgresql.png",
+        "status": {
+            "x": 1280,
+            "y": 360,
+            "wires": [
+                {
+                    "id": "5de51c23b6724d41",
+                    "port": 0
+                },
+                {
+                    "id": "55935bfbd8f53f65",
+                    "port": 0
+                },
+                {
+                    "id": "4878e18e732c4e5f",
+                    "port": 0
+                },
+                {
+                    "id": "37590814867e6e39",
+                    "port": 0
+                },
+                {
+                    "id": "4d2c32172628bb0e",
+                    "port": 0
+                }
+            ]
+        }
+    },
+    {
+        "id": "f9cdd5b9e81989d9",
+        "type": "subflow",
+        "name": "Update pt to approved",
+        "info": "### Input\n```\nmsg.payload = {\n    userId: number,\n    ptId: number,\n}\n```\n\n### Output\nmsg.payload",
+        "category": "",
+        "in": [
+            {
+                "x": 60,
+                "y": 80,
+                "wires": [
+                    {
+                        "id": "7503c3142c5b1753"
+                    }
+                ]
+            }
+        ],
+        "out": [
+            {
+                "x": 960,
+                "y": 280,
+                "wires": [
+                    {
+                        "id": "ea8fea9896492424",
+                        "port": 0
+                    }
+                ]
+            },
+            {
+                "x": 940,
+                "y": 640,
+                "wires": [
+                    {
+                        "id": "4a9b2fbcd46845d8",
+                        "port": 0
+                    },
+                    {
+                        "id": "9e7f798d9bf3e224",
+                        "port": 1
+                    }
+                ]
+            }
+        ],
+        "env": [],
+        "meta": {},
+        "color": "#3FADB5",
+        "icon": "node-red-contrib-postgresql/postgresql.png",
+        "status": {
+            "x": 940,
+            "y": 540,
+            "wires": [
+                {
+                    "id": "ea8fea9896492424",
+                    "port": 0
+                },
+                {
+                    "id": "4a9b2fbcd46845d8",
+                    "port": 0
+                },
+                {
+                    "id": "9e7f798d9bf3e224",
+                    "port": 1
+                }
+            ]
+        }
+    },
+    {
+        "id": "e6c77e14b42d5a57",
+        "type": "subflow",
+        "name": "Check if user exists",
+        "info": "### Input\n```\nmsg.payload = {\n    userId: number\n}\n```\n\n### Output\nmsg.payload",
+        "category": "",
+        "in": [
+            {
+                "x": 60,
+                "y": 180,
+                "wires": [
+                    {
+                        "id": "f62f41b9f87f3b12"
+                    }
+                ]
+            }
+        ],
+        "out": [
+            {
+                "x": 920,
+                "y": 180,
+                "wires": [
+                    {
+                        "id": "13b632bf58856e47",
+                        "port": 0
+                    }
+                ]
+            },
+            {
+                "x": 920,
+                "y": 320,
+                "wires": [
+                    {
+                        "id": "b4a91a26483f01c2",
+                        "port": 0
+                    },
+                    {
+                        "id": "26e2f9fdeadbb3c1",
+                        "port": 0
+                    }
+                ]
+            }
+        ],
+        "env": [],
+        "meta": {},
+        "color": "#3FADB5",
+        "icon": "node-red-contrib-postgresql/postgresql.png",
+        "status": {
+            "x": 920,
+            "y": 240,
+            "wires": [
+                {
+                    "id": "13b632bf58856e47",
+                    "port": 0
+                },
+                {
+                    "id": "b4a91a26483f01c2",
+                    "port": 0
+                }
+            ]
+        }
+    },
+    {
+        "id": "7ae2a66871219b43",
+        "type": "subflow",
+        "name": "Update pt to close",
+        "info": "",
+        "category": "",
+        "in": [
+            {
+                "x": 60,
+                "y": 80,
+                "wires": [
+                    {
+                        "id": "45c8225e190aadbc"
+                    }
+                ]
+            }
+        ],
+        "out": [
+            {
+                "x": 940,
+                "y": 260,
+                "wires": [
+                    {
+                        "id": "bef9fa6961c63651",
+                        "port": 0
+                    }
+                ]
+            },
+            {
+                "x": 940,
+                "y": 620,
+                "wires": [
+                    {
+                        "id": "b3054d684beb4852",
+                        "port": 1
+                    },
+                    {
+                        "id": "657b50e2d6049892",
+                        "port": 0
+                    }
+                ]
+            }
+        ],
+        "env": [],
+        "meta": {},
+        "color": "#DDAA99",
+        "status": {
+            "x": 940,
+            "y": 460,
+            "wires": [
+                {
+                    "id": "b3054d684beb4852",
+                    "port": 1
+                },
+                {
+                    "id": "657b50e2d6049892",
+                    "port": 0
+                },
+                {
+                    "id": "bef9fa6961c63651",
+                    "port": 0
+                }
+            ]
+        }
+    },
+    {
+        "id": "41b761e9539b9976",
+        "type": "group",
+        "z": "6bef21922d7c8e5a",
+        "name": "Abertura de PT",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "831914bce54b9919",
+            "13e610f63516871c"
+        ],
+        "x": 14,
+        "y": 139
+    },
+    {
+        "id": "088769a31036e0a6",
+        "type": "postgreSQLConfig",
+        "name": "db::postgres::default",
+        "host": "NR_POSTGRES_HOST",
+        "hostFieldType": "env",
+        "port": "NR_POSTGRES_PORT",
+        "portFieldType": "env",
+        "database": "NR_POSTGRES_DB",
+        "databaseFieldType": "env",
+        "ssl": "false",
+        "sslFieldType": "bool",
+        "applicationName": "",
+        "applicationNameType": "str",
+        "max": "10",
+        "maxFieldType": "num",
+        "idle": "1000",
+        "idleFieldType": "num",
+        "connectionTimeout": "10000",
+        "connectionTimeoutFieldType": "num",
+        "user": "NR_POSTGRES_USER",
+        "userFieldType": "env",
+        "password": "NR_POSTGRES_PASSWORD",
+        "passwordFieldType": "env"
+    },
+    {
+        "id": "6a65e6bc849cef20",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-dark",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#097479",
+                    "value": "#097479",
+                    "edited": false
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#097479",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#333333",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#0eb8c0",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#555555",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#333333",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#eeeeee",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#097479",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#333333",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey",
+                "palette": "light"
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "20e0ceb4eebfe092",
+        "type": "ui_tab",
+        "name": "Geral",
+        "icon": "dashboard",
+        "order": 2,
+        "disabled": false,
+        "hidden": true
+    },
+    {
+        "id": "41ef0e28eef0e07c",
+        "type": "ui_group",
+        "name": "Abertura de PT",
+        "tab": "20e0ceb4eebfe092",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "54187e88fe9e1c02",
+        "type": "ui_link",
+        "name": "Link 2",
+        "link": "https://google.com",
+        "icon": "open_in_browser",
+        "target": "newtab",
+        "order": 1
+    },
+    {
+        "id": "aad86507075324ac",
+        "type": "ui_group",
+        "name": "Fechamento",
+        "tab": "20e0ceb4eebfe092",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "9f677850d797cf5a",
+        "type": "postgresql",
+        "z": "16df7122180a067e",
+        "name": "",
+        "query": "SELECT * FROM users WHERE\n    id IN ({{{msg.payload.userId}}})\n    AND company_id IN ({{{msg.payload.companyId}}});",
+        "postgreSQLConfig": "088769a31036e0a6",
+        "split": false,
+        "rowsPerMsg": 1,
+        "outputs": 1,
+        "x": 450,
+        "y": 180,
+        "wires": [
+            [
+                "c2a3b32dce42e92e"
+            ]
+        ]
+    },
+    {
+        "id": "c2a3b32dce42e92e",
+        "type": "function",
+        "z": "16df7122180a067e",
+        "name": "is Empty",
+        "func": "if(msg.payload.length === 0) {\n    throw new Error('User or Company is not exists')\n}\n\nmsg.payload = msg.input;\ndelete msg.input;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 660,
+        "y": 180,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "1e5c7f87484f5a77",
+        "type": "catch",
+        "z": "16df7122180a067e",
+        "name": "isEmpty",
+        "scope": [
+            "c2a3b32dce42e92e"
+        ],
+        "uncaught": false,
+        "x": 170,
+        "y": 280,
+        "wires": [
+            [
+                "86d6384e3c092c30"
+            ]
+        ]
+    },
+    {
+        "id": "86d6384e3c092c30",
+        "type": "change",
+        "z": "16df7122180a067e",
+        "name": "statusCode - 400",
+        "rules": [
+            {
+                "t": "set",
+                "p": "statusCode",
+                "pt": "msg",
+                "to": "400",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 370,
+        "y": 280,
+        "wires": [
+            [
+                "f7c0e19e957e300a"
+            ]
+        ]
+    },
+    {
+        "id": "f7c0e19e957e300a",
+        "type": "change",
+        "z": "16df7122180a067e",
+        "name": "Remove error.source",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "error",
+                "tot": "msg"
+            },
+            {
+                "t": "delete",
+                "p": "payload.source",
+                "pt": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 620,
+        "y": 280,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "04e836950ea3726c",
+        "type": "function",
+        "z": "16df7122180a067e",
+        "name": "payload validation",
+        "func": "const isValid = \n    msg.payload.userId\n    && msg.payload.companyId \n\nif (!isValid) {\n    throw new Error(JSON.stringify(msg.payload))\n}\n\nmsg.input = msg.payload\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 210,
+        "y": 180,
+        "wires": [
+            [
+                "9f677850d797cf5a"
+            ]
+        ]
+    },
+    {
+        "id": "8448835113819747",
+        "type": "catch",
+        "z": "16df7122180a067e",
+        "name": "payload validation",
+        "scope": [
+            "04e836950ea3726c"
+        ],
+        "uncaught": false,
+        "x": 170,
+        "y": 380,
+        "wires": [
+            [
+                "b72f845312632314"
+            ]
+        ]
+    },
+    {
+        "id": "b72f845312632314",
+        "type": "change",
+        "z": "16df7122180a067e",
+        "name": "statusCode - 500",
+        "rules": [
+            {
+                "t": "set",
+                "p": "statusCode",
+                "pt": "msg",
+                "to": "500",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 390,
+        "y": 380,
+        "wires": [
+            [
+                "5b0ad01e490bce4d"
+            ]
+        ]
+    },
+    {
+        "id": "5b0ad01e490bce4d",
+        "type": "change",
+        "z": "16df7122180a067e",
+        "name": "internal server error",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\"message\":\"Internal Server Error\"}",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 630,
+        "y": 380,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "bd2ab66f8ecf6e2a",
+        "type": "catch",
+        "z": "16df7122180a067e",
+        "name": "",
+        "scope": null,
+        "uncaught": false,
+        "x": 210,
+        "y": 500,
+        "wires": [
+            [
+                "b72f845312632314"
+            ]
+        ]
+    },
+    {
+        "id": "f4f51c96b088e6d7",
+        "type": "postgresql",
+        "z": "180f3a6d5bebce5c",
+        "name": "",
+        "query": "SELECT * FROM pts WHERE\n    name LIKE ('{{{msg.payload.name}}}');",
+        "postgreSQLConfig": "088769a31036e0a6",
+        "split": false,
+        "rowsPerMsg": 1,
+        "outputs": 1,
+        "x": 570,
+        "y": 300,
+        "wires": [
+            [
+                "16e93c89d7a6acc5"
+            ]
+        ]
+    },
+    {
+        "id": "16e93c89d7a6acc5",
+        "type": "function",
+        "z": "180f3a6d5bebce5c",
+        "name": "is not Empty",
+        "func": "if(msg.payload.length > 0) {\n    throw new Error('PT name is exists')\n}\n\nmsg.payload = msg.input;\ndelete msg.input;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 770,
+        "y": 300,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "4d15e00a2395b680",
+        "type": "catch",
+        "z": "180f3a6d5bebce5c",
+        "name": "",
+        "scope": [
+            "16e93c89d7a6acc5"
+        ],
+        "uncaught": false,
+        "x": 430,
+        "y": 520,
+        "wires": [
+            [
+                "13771cae44bf3caf"
+            ]
+        ]
+    },
+    {
+        "id": "13771cae44bf3caf",
+        "type": "change",
+        "z": "180f3a6d5bebce5c",
+        "name": "statusCode - 400",
+        "rules": [
+            {
+                "t": "set",
+                "p": "statusCode",
+                "pt": "msg",
+                "to": "400",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 650,
+        "y": 520,
+        "wires": [
+            [
+                "5fae6f574933697d"
+            ]
+        ]
+    },
+    {
+        "id": "5fae6f574933697d",
+        "type": "change",
+        "z": "180f3a6d5bebce5c",
+        "name": "Remove error.source",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "error",
+                "tot": "msg"
+            },
+            {
+                "t": "delete",
+                "p": "payload.source",
+                "pt": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 880,
+        "y": 520,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f88b6e8986455b09",
+        "type": "function",
+        "z": "180f3a6d5bebce5c",
+        "name": "payload validation",
+        "func": "const isValid = msg.payload.name;\n\nif (!isValid) {\n    throw new Error(JSON.stringify(msg.payload))\n}\n\nmsg.input = msg.payload\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 330,
+        "y": 300,
+        "wires": [
+            [
+                "f4f51c96b088e6d7"
+            ]
+        ]
+    },
+    {
+        "id": "80fc2155cac5fdf3",
+        "type": "catch",
+        "z": "180f3a6d5bebce5c",
+        "name": "",
+        "scope": [
+            "f88b6e8986455b09"
+        ],
+        "uncaught": false,
+        "x": 430,
+        "y": 440,
+        "wires": [
+            [
+                "2facb9931203607f"
+            ]
+        ]
+    },
+    {
+        "id": "2facb9931203607f",
+        "type": "change",
+        "z": "180f3a6d5bebce5c",
+        "name": "statusCode - 500",
+        "rules": [
+            {
+                "t": "set",
+                "p": "statusCode",
+                "pt": "msg",
+                "to": "500",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 650,
+        "y": 440,
+        "wires": [
+            [
+                "a99d59ffe87af28e"
+            ]
+        ]
+    },
+    {
+        "id": "a99d59ffe87af28e",
+        "type": "change",
+        "z": "180f3a6d5bebce5c",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\"message\":\"Internal Server Error\"}",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 900,
+        "y": 440,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "dc07f19851d4ac99",
+        "type": "catch",
+        "z": "180f3a6d5bebce5c",
+        "name": "",
+        "scope": null,
+        "uncaught": false,
+        "x": 420,
+        "y": 360,
+        "wires": [
+            [
+                "2facb9931203607f"
+            ]
+        ]
+    },
+    {
+        "id": "df2610047eb4f4fa",
+        "type": "postgresql",
+        "z": "3a0a1967c1239579",
+        "name": "Insert a new PT",
+        "query": "INSERT INTO pts (name, description, limit_in_days, created_by_user, company_id)\n    VALUES (\n        '{{{msg.payload.name}}}',\n        '{{{msg.payload.description}}}',\n        {{{msg.payload.limitInDays}}},\n        {{{msg.payload.userId}}},\n        {{{msg.payload.companyId}}}\n    );",
+        "postgreSQLConfig": "088769a31036e0a6",
+        "split": false,
+        "rowsPerMsg": 1,
+        "outputs": 1,
+        "x": 480,
+        "y": 360,
+        "wires": [
+            [
+                "8dbcb1e97ae616a7",
+                "5de51c23b6724d41"
+            ]
+        ]
+    },
+    {
+        "id": "8dbcb1e97ae616a7",
+        "type": "function",
+        "z": "3a0a1967c1239579",
+        "name": "prevent dangerTypesIds undefined",
+        "func": "msg.payload.dangerTypesIds = msg.payload.dangerTypesIds || []\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 260,
+        "y": 540,
+        "wires": [
+            [
+                "4053201aa027edf7"
+            ]
+        ]
+    },
+    {
+        "id": "4053201aa027edf7",
+        "type": "switch",
+        "z": "3a0a1967c1239579",
+        "name": "dangerTypes payload exists",
+        "property": "payload.dangerTypesIds",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "empty"
+            },
+            {
+                "t": "nempty"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 600,
+        "y": 540,
+        "wires": [
+            [
+                "d8e7340a1cbb24bd"
+            ],
+            [
+                "86d9b323daed4310",
+                "4878e18e732c4e5f"
+            ]
+        ]
+    },
+    {
+        "id": "86d9b323daed4310",
+        "type": "postgresql",
+        "z": "3a0a1967c1239579",
+        "name": "Get latest insert pt",
+        "query": "SELECT * FROM pts ORDER BY created_at DESC LIMIT 1;",
+        "postgreSQLConfig": "088769a31036e0a6",
+        "split": false,
+        "rowsPerMsg": 1,
+        "outputs": 1,
+        "x": 210,
+        "y": 840,
+        "wires": [
+            [
+                "6f356684a6663ef0"
+            ]
+        ]
+    },
+    {
+        "id": "6f356684a6663ef0",
+        "type": "change",
+        "z": "3a0a1967c1239579",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "ptId",
+                "pt": "msg",
+                "to": "payload[0].id",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "req.body.dangerTypesIds",
+                "tot": "msg",
+                "dc": true
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 440,
+        "y": 840,
+        "wires": [
+            [
+                "4071b19520a05c0b"
+            ]
+        ]
+    },
+    {
+        "id": "4071b19520a05c0b",
+        "type": "split",
+        "z": "3a0a1967c1239579",
+        "name": "",
+        "splt": "\\n",
+        "spltType": "str",
+        "arraySplt": 1,
+        "arraySpltType": "len",
+        "stream": false,
+        "addname": "",
+        "x": 630,
+        "y": 840,
+        "wires": [
+            [
+                "453022f100a80219"
+            ]
+        ]
+    },
+    {
+        "id": "453022f100a80219",
+        "type": "postgresql",
+        "z": "3a0a1967c1239579",
+        "name": "Update dangerTypes",
+        "query": "INSERT INTO pts_danger_types (pts_id, danger_type_id)\n    VALUES (\n        {{{msg.ptId}}},\n        {{{msg.payload}}}\n    );",
+        "postgreSQLConfig": "088769a31036e0a6",
+        "split": false,
+        "rowsPerMsg": 1,
+        "outputs": 1,
+        "x": 840,
+        "y": 840,
+        "wires": [
+            [
+                "f28d0e4a45457cfa",
+                "37590814867e6e39"
+            ]
+        ]
+    },
+    {
+        "id": "f28d0e4a45457cfa",
+        "type": "join",
+        "z": "3a0a1967c1239579",
+        "name": "",
+        "mode": "auto",
+        "build": "object",
+        "property": "payload",
+        "propertyType": "msg",
+        "key": "topic",
+        "joiner": "\\n",
+        "joinerType": "str",
+        "accumulate": true,
+        "timeout": "",
+        "count": "",
+        "reduceRight": false,
+        "reduceExp": "",
+        "reduceInit": "",
+        "reduceInitType": "",
+        "reduceFixup": "",
+        "x": 1050,
+        "y": 840,
+        "wires": [
+            [
+                "d8e7340a1cbb24bd"
+            ]
+        ]
+    },
+    {
+        "id": "0c5ba2192142c750",
+        "type": "function",
+        "z": "3a0a1967c1239579",
+        "name": "required fields validations",
+        "func": "const isValid = \n    msg.payload.name &&\n    msg.payload.description &&\n    msg.payload.limitInDays &&\n    msg.payload.userId &&\n    msg.payload.companyId;\n\n\nif(!isValid) {\n    throw new Error(\"invalid payload\");\n}\n\nmsg.input = msg.payload;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 230,
+        "y": 360,
+        "wires": [
+            [
+                "df2610047eb4f4fa"
+            ]
+        ]
+    },
+    {
+        "id": "5de51c23b6724d41",
+        "type": "change",
+        "z": "3a0a1967c1239579",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Created",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1020,
+        "y": 360,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "55935bfbd8f53f65",
+        "type": "change",
+        "z": "3a0a1967c1239579",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Creating...",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1020,
+        "y": 320,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "4878e18e732c4e5f",
+        "type": "change",
+        "z": "3a0a1967c1239579",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Adding dangerTypes",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1020,
+        "y": 400,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "37590814867e6e39",
+        "type": "change",
+        "z": "3a0a1967c1239579",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Added dangerTypes",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1020,
+        "y": 440,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "b55df8de236c645c",
+        "type": "catch",
+        "z": "3a0a1967c1239579",
+        "name": "",
+        "scope": [
+            "0c5ba2192142c750"
+        ],
+        "uncaught": false,
+        "x": 570,
+        "y": 140,
+        "wires": [
+            [
+                "3928a9559d5dc2ea"
+            ]
+        ]
+    },
+    {
+        "id": "5cdcb26e3c053916",
+        "type": "catch",
+        "z": "3a0a1967c1239579",
+        "name": "",
+        "scope": [
+            "df2610047eb4f4fa",
+            "86d9b323daed4310",
+            "453022f100a80219"
+        ],
+        "uncaught": false,
+        "x": 570,
+        "y": 80,
+        "wires": [
+            [
+                "e08375ee5b2a24c2"
+            ]
+        ]
+    },
+    {
+        "id": "e08375ee5b2a24c2",
+        "type": "change",
+        "z": "3a0a1967c1239579",
+        "name": "statusCode - 400",
+        "rules": [
+            {
+                "t": "set",
+                "p": "statusCode",
+                "pt": "msg",
+                "to": "400",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 750,
+        "y": 80,
+        "wires": [
+            [
+                "ce1337e734ee9805"
+            ]
+        ]
+    },
+    {
+        "id": "ce1337e734ee9805",
+        "type": "change",
+        "z": "3a0a1967c1239579",
+        "name": "Remove error.source",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "error",
+                "tot": "msg"
+            },
+            {
+                "t": "delete",
+                "p": "payload.source",
+                "pt": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1000,
+        "y": 80,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "3928a9559d5dc2ea",
+        "type": "change",
+        "z": "3a0a1967c1239579",
+        "name": "statusCode - 500",
+        "rules": [
+            {
+                "t": "set",
+                "p": "statusCode",
+                "pt": "msg",
+                "to": "500",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 770,
+        "y": 140,
+        "wires": [
+            [
+                "4d2c32172628bb0e"
+            ]
+        ]
+    },
+    {
+        "id": "4d2c32172628bb0e",
+        "type": "change",
+        "z": "3a0a1967c1239579",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\"message\":\"Internal Server Error\"}",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1020,
+        "y": 140,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d8e7340a1cbb24bd",
+        "type": "change",
+        "z": "3a0a1967c1239579",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "input",
+                "tot": "msg"
+            },
+            {
+                "t": "delete",
+                "p": "input",
+                "pt": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1180,
+        "y": 580,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "2e295ce0f57af0b8",
+        "type": "catch",
+        "z": "3a0a1967c1239579",
+        "name": "",
+        "scope": null,
+        "uncaught": false,
+        "x": 560,
+        "y": 200,
+        "wires": [
+            [
+                "3928a9559d5dc2ea"
+            ]
+        ]
+    },
+    {
+        "id": "ea8fea9896492424",
+        "type": "change",
+        "z": "f9cdd5b9e81989d9",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "input",
+                "tot": "msg"
+            },
+            {
+                "t": "delete",
+                "p": "input",
+                "pt": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 780,
+        "y": 280,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "29a6154b3de735c6",
+        "type": "postgresql",
+        "z": "f9cdd5b9e81989d9",
+        "name": "",
+        "query": "UPDATE pts SET\n    approved_by_user = {{{msg.payload.userId}}},\n    approved_at = current_timestamp\nWHERE id = {{{msg.payload.ptId}}};",
+        "postgreSQLConfig": "088769a31036e0a6",
+        "split": false,
+        "rowsPerMsg": 1,
+        "outputs": 1,
+        "x": 570,
+        "y": 280,
+        "wires": [
+            [
+                "ea8fea9896492424"
+            ]
+        ]
+    },
+    {
+        "id": "7503c3142c5b1753",
+        "type": "function",
+        "z": "f9cdd5b9e81989d9",
+        "name": "required fields validations",
+        "func": "const isValid = \n    msg.payload.ptId &&\n    msg.payload.userId\n\nif (!isValid) {\n    throw new Error(JSON.stringify('invalid entry'))\n}\n\nmsg.input = msg.payload\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 210,
+        "y": 200,
+        "wires": [
+            [
+                "9e7f798d9bf3e224"
+            ]
+        ]
+    },
+    {
+        "id": "860a2734076d9e2c",
+        "type": "catch",
+        "z": "f9cdd5b9e81989d9",
+        "name": "required validations",
+        "scope": [
+            "7503c3142c5b1753"
+        ],
+        "uncaught": false,
+        "x": 170,
+        "y": 640,
+        "wires": [
+            [
+                "1e95a2d35d5bb038"
+            ]
+        ]
+    },
+    {
+        "id": "1e95a2d35d5bb038",
+        "type": "change",
+        "z": "f9cdd5b9e81989d9",
+        "name": "statusCode - 500",
+        "rules": [
+            {
+                "t": "set",
+                "p": "statusCode",
+                "pt": "msg",
+                "to": "500",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 390,
+        "y": 640,
+        "wires": [
+            [
+                "4a9b2fbcd46845d8"
+            ]
+        ]
+    },
+    {
+        "id": "4a9b2fbcd46845d8",
+        "type": "change",
+        "z": "f9cdd5b9e81989d9",
+        "name": "internal server error",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\"message\":\"Internal Server Error\"}",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 630,
+        "y": 640,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "9e7f798d9bf3e224",
+        "type": "subflow:e6c77e14b42d5a57",
+        "z": "f9cdd5b9e81989d9",
+        "name": "",
+        "x": 370,
+        "y": 420,
+        "wires": [
+            [
+                "29a6154b3de735c6"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "c3ee847d56116527",
+        "type": "catch",
+        "z": "f9cdd5b9e81989d9",
+        "name": "",
+        "scope": null,
+        "uncaught": false,
+        "x": 180,
+        "y": 740,
+        "wires": [
+            [
+                "1e95a2d35d5bb038"
+            ]
+        ]
+    },
+    {
+        "id": "681a28762c4e5057",
+        "type": "postgresql",
+        "z": "e6c77e14b42d5a57",
+        "name": "Check user id",
+        "query": "SELECT * FROM users\nWHERE id = {{{msg.payload.userId}}};",
+        "postgreSQLConfig": "088769a31036e0a6",
+        "split": false,
+        "rowsPerMsg": 1,
+        "outputs": 1,
+        "x": 460,
+        "y": 180,
+        "wires": [
+            [
+                "13b632bf58856e47"
+            ]
+        ]
+    },
+    {
+        "id": "f62f41b9f87f3b12",
+        "type": "function",
+        "z": "e6c77e14b42d5a57",
+        "name": "required validations",
+        "func": "if(!msg.payload.userId) {\n    throw new Error('invalid entry')\n}\n\nmsg.input = msg.payload;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 230,
+        "y": 180,
+        "wires": [
+            [
+                "681a28762c4e5057"
+            ]
+        ]
+    },
+    {
+        "id": "726697fa0a8b5de2",
+        "type": "catch",
+        "z": "e6c77e14b42d5a57",
+        "name": "required validations",
+        "scope": [
+            "f62f41b9f87f3b12"
+        ],
+        "uncaught": false,
+        "x": 190,
+        "y": 320,
+        "wires": [
+            [
+                "5119d578fd46e2c9"
+            ]
+        ]
+    },
+    {
+        "id": "5119d578fd46e2c9",
+        "type": "change",
+        "z": "e6c77e14b42d5a57",
+        "name": "statusCode - 500",
+        "rules": [
+            {
+                "t": "set",
+                "p": "statusCode",
+                "pt": "msg",
+                "to": "500",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 410,
+        "y": 320,
+        "wires": [
+            [
+                "b4a91a26483f01c2"
+            ]
+        ]
+    },
+    {
+        "id": "b4a91a26483f01c2",
+        "type": "change",
+        "z": "e6c77e14b42d5a57",
+        "name": "internal server error",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\"message\":\"Internal Server Error\"}",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 630,
+        "y": 320,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "13b632bf58856e47",
+        "type": "function",
+        "z": "e6c77e14b42d5a57",
+        "name": "is Empty",
+        "func": "if(msg.payload.length === 0) {\n    throw new Error('User not exists')\n}\n\nmsg.payload = msg.input;\ndelete msg.input;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 720,
+        "y": 180,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c7bf54df7deaa010",
+        "type": "catch",
+        "z": "e6c77e14b42d5a57",
+        "name": "isEmpty",
+        "scope": [
+            "13b632bf58856e47"
+        ],
+        "uncaught": false,
+        "x": 170,
+        "y": 260,
+        "wires": [
+            [
+                "fa95bb31a7de2e02"
+            ]
+        ]
+    },
+    {
+        "id": "fa95bb31a7de2e02",
+        "type": "change",
+        "z": "e6c77e14b42d5a57",
+        "name": "statusCode - 400",
+        "rules": [
+            {
+                "t": "set",
+                "p": "statusCode",
+                "pt": "msg",
+                "to": "400",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 370,
+        "y": 260,
+        "wires": [
+            [
+                "26e2f9fdeadbb3c1"
+            ]
+        ]
+    },
+    {
+        "id": "26e2f9fdeadbb3c1",
+        "type": "change",
+        "z": "e6c77e14b42d5a57",
+        "name": "Remove error.source",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "error",
+                "tot": "msg"
+            },
+            {
+                "t": "delete",
+                "p": "payload.source",
+                "pt": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 620,
+        "y": 260,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "3a369cb2dbf3af16",
+        "type": "catch",
+        "z": "e6c77e14b42d5a57",
+        "name": "",
+        "scope": null,
+        "uncaught": false,
+        "x": 180,
+        "y": 440,
+        "wires": [
+            [
+                "5119d578fd46e2c9"
+            ]
+        ]
+    },
+    {
+        "id": "bef9fa6961c63651",
+        "type": "change",
+        "z": "7ae2a66871219b43",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "input",
+                "tot": "msg"
+            },
+            {
+                "t": "delete",
+                "p": "input",
+                "pt": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 780,
+        "y": 260,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "14aafbf2700d497b",
+        "type": "postgresql",
+        "z": "7ae2a66871219b43",
+        "name": "",
+        "query": "UPDATE pts SET\n    closed_by_user = {{{msg.payload.userId}}},\n    closed_at = current_timestamp\nWHERE id = {{{msg.payload.ptId}}};",
+        "postgreSQLConfig": "088769a31036e0a6",
+        "split": false,
+        "rowsPerMsg": 1,
+        "outputs": 1,
+        "x": 570,
+        "y": 260,
+        "wires": [
+            [
+                "bef9fa6961c63651"
+            ]
+        ]
+    },
+    {
+        "id": "45c8225e190aadbc",
+        "type": "function",
+        "z": "7ae2a66871219b43",
+        "name": "required fields validations",
+        "func": "const isValid = \n    msg.payload.ptId &&\n    msg.payload.userId\n\nif (!isValid) {\n    throw new Error(JSON.stringify('invalid entry'))\n}\n\nmsg.input = msg.payload\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 230,
+        "y": 180,
+        "wires": [
+            [
+                "b3054d684beb4852"
+            ]
+        ]
+    },
+    {
+        "id": "f016e3e513fa35dd",
+        "type": "catch",
+        "z": "7ae2a66871219b43",
+        "name": "required validations",
+        "scope": [
+            "45c8225e190aadbc"
+        ],
+        "uncaught": false,
+        "x": 170,
+        "y": 620,
+        "wires": [
+            [
+                "e17a8f0fb6dff4c3"
+            ]
+        ]
+    },
+    {
+        "id": "e17a8f0fb6dff4c3",
+        "type": "change",
+        "z": "7ae2a66871219b43",
+        "name": "statusCode - 500",
+        "rules": [
+            {
+                "t": "set",
+                "p": "statusCode",
+                "pt": "msg",
+                "to": "500",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 390,
+        "y": 620,
+        "wires": [
+            [
+                "657b50e2d6049892"
+            ]
+        ]
+    },
+    {
+        "id": "657b50e2d6049892",
+        "type": "change",
+        "z": "7ae2a66871219b43",
+        "name": "internal server error",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\"message\":\"Internal Server Error\"}",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 630,
+        "y": 620,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "b3054d684beb4852",
+        "type": "subflow:e6c77e14b42d5a57",
+        "z": "7ae2a66871219b43",
+        "name": "",
+        "x": 350,
+        "y": 300,
+        "wires": [
+            [
+                "14aafbf2700d497b"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "96868567bad1cc09",
+        "type": "catch",
+        "z": "7ae2a66871219b43",
+        "name": "",
+        "scope": null,
+        "uncaught": false,
+        "x": 180,
+        "y": 720,
+        "wires": [
+            [
+                "e17a8f0fb6dff4c3"
+            ]
+        ]
+    },
+    {
+        "id": "3877383e236815f0",
+        "type": "ui_template",
+        "z": "6bef21922d7c8e5a",
+        "group": "41ef0e28eef0e07c",
+        "name": "TailwindCSS script",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "format": "<script src=\"https://cdn.tailwindcss.com\"></script>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "global",
+        "className": "",
+        "x": 110,
+        "y": 80,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "831914bce54b9919",
+        "type": "ui_form",
+        "z": "6bef21922d7c8e5a",
+        "g": "41b761e9539b9976",
+        "name": "",
+        "label": "Formulário de Abertura",
+        "group": "41ef0e28eef0e07c",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "options": [
+            {
+                "label": "Nome",
+                "value": "openName",
+                "type": "text",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "Descrição",
+                "value": "openDescription",
+                "type": "text",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "Cabeçalho",
+                "value": "openHeader",
+                "type": "text",
+                "required": true,
+                "rows": null
+            }
+        ],
+        "formValue": {
+            "openName": "",
+            "openDescription": "",
+            "openHeader": ""
+        },
+        "payload": "",
+        "submit": "Criar",
+        "cancel": "Cancelar",
+        "topic": "topic",
+        "topicType": "msg",
+        "splitLayout": "",
+        "className": "",
+        "x": 140,
+        "y": 180,
+        "wires": [
+            [
+                "13e610f63516871c"
+            ]
+        ]
+    },
+    {
+        "id": "13e610f63516871c",
+        "type": "debug",
+        "z": "6bef21922d7c8e5a",
+        "g": "41b761e9539b9976",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 570,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "10923433393dfd73",
+        "type": "http in",
+        "z": "4c1e8a1527ef26aa",
+        "name": "",
+        "url": "/pt/open",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 130,
+        "y": 320,
+        "wires": [
+            [
+                "11dae380addcdf48"
+            ]
+        ]
+    },
+    {
+        "id": "db411233c81f0220",
+        "type": "http in",
+        "z": "4c1e8a1527ef26aa",
+        "name": "",
+        "url": "/pt/:id/approval",
+        "method": "patch",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 200,
+        "y": 800,
+        "wires": [
+            [
+                "b0a2d98b1dd9fc2a"
+            ]
+        ]
+    },
+    {
+        "id": "77038be1178def6b",
+        "type": "http in",
+        "z": "4c1e8a1527ef26aa",
+        "name": "",
+        "url": "/pt/:id/close",
+        "method": "patch",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 190,
+        "y": 940,
+        "wires": [
+            [
+                "c999e32118e0e806"
+            ]
+        ]
+    },
+    {
+        "id": "ac1fd8b0b4091304",
+        "type": "http response",
+        "z": "4c1e8a1527ef26aa",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 1350,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "50c38466d84c7733",
+        "type": "subflow:16df7122180a067e",
+        "z": "4c1e8a1527ef26aa",
+        "name": "",
+        "x": 280,
+        "y": 460,
+        "wires": [
+            [
+                "7de6922df2b9da61"
+            ],
+            [
+                "c99b1a85a4d75e97"
+            ]
+        ]
+    },
+    {
+        "id": "7de6922df2b9da61",
+        "type": "subflow:180f3a6d5bebce5c",
+        "z": "4c1e8a1527ef26aa",
+        "name": "",
+        "x": 600,
+        "y": 440,
+        "wires": [
+            [
+                "be4f40e7e272d41e"
+            ],
+            [
+                "c99b1a85a4d75e97"
+            ]
+        ]
+    },
+    {
+        "id": "be4f40e7e272d41e",
+        "type": "subflow:3a0a1967c1239579",
+        "z": "4c1e8a1527ef26aa",
+        "name": "",
+        "x": 840,
+        "y": 420,
+        "wires": [
+            [
+                "6671d2e749443d7d"
+            ],
+            [
+                "c99b1a85a4d75e97"
+            ]
+        ]
+    },
+    {
+        "id": "6671d2e749443d7d",
+        "type": "change",
+        "z": "4c1e8a1527ef26aa",
+        "name": "Clean before response",
+        "rules": [
+            {
+                "t": "set",
+                "p": "statusCode",
+                "pt": "msg",
+                "to": "201",
+                "tot": "num"
+            },
+            {
+                "t": "delete",
+                "p": "payload",
+                "pt": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1120,
+        "y": 420,
+        "wires": [
+            [
+                "ac1fd8b0b4091304"
+            ]
+        ]
+    },
+    {
+        "id": "11dae380addcdf48",
+        "type": "function",
+        "z": "4c1e8a1527ef26aa",
+        "name": "transform payload",
+        "func": "msg.payload = {\n    name: msg.req.body.name,\n    description: msg.req.body.description,\n    limitInDays: msg.req.body.limitInDays,\n    dangerTypesIds: msg.req.body.dangerTypesIds,\n    userId: msg.req.body.header.userId,\n    companyId: msg.req.body.header.companyId,\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 390,
+        "y": 320,
+        "wires": [
+            [
+                "50c38466d84c7733"
+            ]
+        ]
+    },
+    {
+        "id": "3a56aca752371109",
+        "type": "http response",
+        "z": "4c1e8a1527ef26aa",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 1010,
+        "y": 800,
+        "wires": []
+    },
+    {
+        "id": "2b524605263fa20d",
+        "type": "http response",
+        "z": "4c1e8a1527ef26aa",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 1030,
+        "y": 940,
+        "wires": []
+    },
+    {
+        "id": "eeaba96504d246e6",
+        "type": "subflow:f9cdd5b9e81989d9",
+        "z": "4c1e8a1527ef26aa",
+        "name": "",
+        "x": 740,
+        "y": 800,
+        "wires": [
+            [
+                "3a56aca752371109"
+            ],
+            [
+                "3a56aca752371109"
+            ]
+        ]
+    },
+    {
+        "id": "c99b1a85a4d75e97",
+        "type": "http response",
+        "z": "4c1e8a1527ef26aa",
+        "name": "http errors",
+        "statusCode": "",
+        "headers": {},
+        "x": 970,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "b0a2d98b1dd9fc2a",
+        "type": "function",
+        "z": "4c1e8a1527ef26aa",
+        "name": "transform payload",
+        "func": "const ptId = msg.req.params.id;\n\nmsg.payload = {\n    ptId: ptId ? Number(ptId) : undefined,\n    userId: msg.req.body.approvedByUserId,\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 490,
+        "y": 800,
+        "wires": [
+            [
+                "eeaba96504d246e6"
+            ]
+        ]
+    },
+    {
+        "id": "3fc9ac7888e98bd4",
+        "type": "http in",
+        "z": "4c1e8a1527ef26aa",
+        "name": "",
+        "url": "/pt",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 110,
+        "y": 240,
+        "wires": [
+            [
+                "306edda45b6dfed5"
+            ]
+        ]
+    },
+    {
+        "id": "306edda45b6dfed5",
+        "type": "postgresql",
+        "z": "4c1e8a1527ef26aa",
+        "name": "Get all",
+        "query": "SELECT * FROM pts;",
+        "postgreSQLConfig": "088769a31036e0a6",
+        "split": false,
+        "rowsPerMsg": 1,
+        "outputs": 1,
+        "x": 290,
+        "y": 240,
+        "wires": [
+            [
+                "1f84e3c51cf40c8b"
+            ]
+        ]
+    },
+    {
+        "id": "1f84e3c51cf40c8b",
+        "type": "http response",
+        "z": "4c1e8a1527ef26aa",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 570,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "c999e32118e0e806",
+        "type": "function",
+        "z": "4c1e8a1527ef26aa",
+        "name": "transform payload",
+        "func": "const ptId = msg.req.params.id;\n\nmsg.payload = {\n    ptId: ptId ? Number(ptId) : undefined,\n    userId: msg.req.body.closedByUserId,\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 470,
+        "y": 940,
+        "wires": [
+            [
+                "5c95e17b849f5af0"
+            ]
+        ]
+    },
+    {
+        "id": "5c95e17b849f5af0",
+        "type": "subflow:7ae2a66871219b43",
+        "z": "4c1e8a1527ef26aa",
+        "name": "",
+        "x": 770,
+        "y": 940,
+        "wires": [
+            [
+                "2b524605263fa20d"
+            ],
+            [
+                "2b524605263fa20d"
+            ]
+        ]
+    },
+    {
+        "id": "9eeae8aff2f7c494",
+        "type": "change",
+        "z": "4c1e8a1527ef26aa",
+        "name": "Remove error.source",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "error",
+                "tot": "msg"
+            },
+            {
+                "t": "delete",
+                "p": "payload.source",
+                "pt": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 580,
+        "y": 80,
+        "wires": [
+            [
+                "695a429276898793"
+            ]
+        ]
+    },
+    {
+        "id": "5557ecd60efad772",
+        "type": "catch",
+        "z": "4c1e8a1527ef26aa",
+        "name": "",
+        "scope": null,
+        "uncaught": false,
+        "x": 120,
+        "y": 80,
+        "wires": [
+            [
+                "e4ad0be00bf01f4c"
+            ]
+        ]
+    },
+    {
+        "id": "e4ad0be00bf01f4c",
+        "type": "change",
+        "z": "4c1e8a1527ef26aa",
+        "name": "statusCode = 500",
+        "rules": [
+            {
+                "t": "set",
+                "p": "statusCode",
+                "pt": "msg",
+                "to": "500",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 330,
+        "y": 80,
+        "wires": [
+            [
+                "9eeae8aff2f7c494"
+            ]
+        ]
+    },
+    {
+        "id": "695a429276898793",
+        "type": "http response",
+        "z": "4c1e8a1527ef26aa",
+        "name": "http internal server error",
+        "statusCode": "",
+        "headers": {},
+        "x": 910,
+        "y": 80,
+        "wires": []
+    }
+]
